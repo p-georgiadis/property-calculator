@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meze 166 Shrewsbury St. Sale Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Meze 166 Shrewsbury St. Sale Calculator</h1>
+    <div class="calculator">
+        <input type="text" id="tableTitle" placeholder="Table Title (Buyer Name)">
+        <select id="saleType">
+            <option value="buildingOnly">Building Only</option>
+            <option value="buildingAndRestaurant">Building + Occupied Restaurant</option>
+        </select>
+        <input type="number" id="salePrice" placeholder="Sale Price">
+        <input type="number" id="cashDown" placeholder="Cash Down Amount">
+        <div id="deductionFields" class="deduction-fields">
+            <div class="deduction-row">
+                <input type="text" class="deductionName" placeholder="Deduction Name">
+                <input type="number" class="deductionAmount" placeholder="Deduction Amount">
+            </div>
+        </div>
+        <div class="button-group">
+            <button id="addDeduction">Add Deduction</button>
+            <button id="calculateProfit">Calculate Profit</button>
+        </div>
+    </div>
+    <div id="currentTable"></div>
+    <div class="table-actions">
+        <div class="button-group">
+            <button id="saveTables">Save Table</button>
+            <button id="loadTables">Load Tables</button>
+        </div>
+    </div>
+    <div id="savedTables"></div>
+</div>
+<script type="module" src="script.js"></script>
+</body>
+</html>
