@@ -10,12 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repository code
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # Step 2: Create the config.json file using GitHub secrets
-      - name: Set up Firebase Config
+      - name: Create Firebase Config File
         run: |
           echo '{
             "apiKey": "${{ secrets.FIREBASE_API_KEY }}",
@@ -26,9 +24,10 @@ jobs:
             "appId": "${{ secrets.FIREBASE_APP_ID }}"
           }' > ./config.json
 
-      # Step 3: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: ./  # This should include `config.json`
+          destination_branch: gh-pages
+          keep_files: true  # Keep existing files in `gh-pages`
